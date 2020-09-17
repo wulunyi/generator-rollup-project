@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "wulunyi",
+      "authorEmail": "1174118708@qq.com",
+      "authorUrl": "git@github.com:wulunyi/generator-rollup-project.git"
+    }
+  }
+}
