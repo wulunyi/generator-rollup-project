@@ -1,0 +1,16 @@
+{
+    "extends": "./node_modules/gts/tsconfig-google.json",
+    "compilerOptions": {
+        "rootDir": ".",
+        "moduleResolution": "node",
+        "baseUrl": ".",
+        "sourceMap": false,
+        "declaration": false,
+        "module": "ESNEXT",
+        "target": "ES5"
+    },
+    "include": [
+        "src/**/*.ts",
+        "test/**/*.ts"
+    ]
+}
