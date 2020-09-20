@@ -1,0 +1,7 @@
+{
+    "name": "generator-rollup-project",
+    "modulePathIgnorePatterns": [
+        "/node_modules/",
+        "/generators/app/templates/"
+    ]
+}
