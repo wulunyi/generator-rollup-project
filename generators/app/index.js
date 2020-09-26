@@ -6,6 +6,16 @@ const { readAllFilePaths } = require("./helper");
 const path = require("path");
 
 module.exports = class extends Generator {
+    constructor(...args) {
+        super(...args);
+
+        this.argument("projectName", {
+            type: String,
+            optional: true,
+            default: ""
+        });
+    }
+
     prompting() {
         // Have Yeoman greet the user.
         this.log(
@@ -16,18 +26,23 @@ module.exports = class extends Generator {
             )
         );
 
-        const prompts = [
-            {
-                type: "input",
-                name: "projectName",
-                message: "Your project name",
-                default: this.appname
-            }
-        ];
+        const prompts = this.options.projectName
+            ? []
+            : [
+                  {
+                      type: "input",
+                      name: "projectName",
+                      message: "Your project name"
+                  }
+              ];
 
         return this.prompt(prompts).then(props => {
-            // To access props later use this.props.someAnswer;
-            this.props = props;
+            this.props = Object.assign(
+                {
+                    projectName: this.options.projectName
+                },
+                props
+            );
         });
     }
 
