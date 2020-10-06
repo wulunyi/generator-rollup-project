@@ -4,6 +4,7 @@ const chalk = require("chalk");
 const yosay = require("yosay");
 const { readAllFilePaths } = require("./helper");
 const path = require("path");
+const { spawnSync } = require("child_process");
 
 module.exports = class extends Generator {
     constructor(...args) {
@@ -62,6 +63,13 @@ module.exports = class extends Generator {
     }
 
     install() {
+        try {
+            spawnSync("git", ["init"]);
+            console.log(chalk.green("git init success"));
+        } catch {
+            console.log(chalk.yellow("git init failed"));
+        }
+
         this.installDependencies({
             npm: true,
             bower: false
